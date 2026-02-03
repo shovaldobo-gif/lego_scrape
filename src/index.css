@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* RTL Support */
+html {
+  direction: rtl;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a1a1a1;
+}
+
+/* Base styles */
+body {
+  @apply bg-gray-50 text-gray-900 font-sans;
+  min-height: 100vh;
+}
+
+/* LEGO-style button */
+@layer components {
+  .btn-lego {
+    @apply px-6 py-3 bg-lego-yellow text-black font-bold rounded-lg
+           hover:bg-yellow-400 transition-all duration-200
+           shadow-md hover:shadow-lg active:scale-95;
+  }
+
+  .btn-lego-red {
+    @apply px-6 py-3 bg-lego-red text-white font-bold rounded-lg
+           hover:bg-red-700 transition-all duration-200
+           shadow-md hover:shadow-lg active:scale-95;
+  }
+
+  .btn-lego-blue {
+    @apply px-6 py-3 bg-lego-blue text-white font-bold rounded-lg
+           hover:bg-blue-700 transition-all duration-200
+           shadow-md hover:shadow-lg active:scale-95;
+  }
+
+  /* Card styles */
+  .card {
+    @apply bg-white rounded-xl shadow-md hover:shadow-xl
+           transition-shadow duration-300 overflow-hidden;
+  }
+
+  /* Price tag */
+  .price-tag {
+    @apply text-2xl font-bold text-lego-red;
+  }
+
+  .price-original {
+    @apply text-gray-400 line-through text-sm;
+  }
+
+  /* Badge */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full
+           text-xs font-medium;
+  }
+
+  .badge-sale {
+    @apply bg-lego-red text-white;
+  }
+
+  .badge-stock {
+    @apply bg-green-100 text-green-800;
+  }
+
+  .badge-out-of-stock {
+    @apply bg-gray-100 text-gray-600;
+  }
+
+  /* Input styles */
+  .input {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-lg
+           focus:ring-2 focus:ring-lego-yellow focus:border-transparent
+           outline-none transition-all duration-200;
+  }
+
+  /* Category chip */
+  .category-chip {
+    @apply inline-flex items-center px-4 py-2 rounded-full
+           bg-gray-100 text-gray-700 font-medium text-sm
+           hover:bg-lego-yellow hover:text-black
+           transition-colors duration-200 cursor-pointer;
+  }
+
+  .category-chip.active {
+    @apply bg-lego-yellow text-black;
+  }
+
+  /* Store logo */
+  .store-logo {
+    @apply w-8 h-8 object-contain rounded;
+  }
+
+  /* Skeleton loading */
+  .skeleton {
+    @apply bg-gray-200 animate-pulse rounded;
+  }
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes pulse-price {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.animate-pulse-price {
+  animation: pulse-price 2s ease-in-out infinite;
+}
